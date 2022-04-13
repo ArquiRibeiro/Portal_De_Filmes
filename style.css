@@ -4,6 +4,10 @@
     padding: 0px;
 }
 
+h3{
+    margin: 0px;
+}
+
 .mySlides{
     display: none;
 }
@@ -54,7 +58,7 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     flex-wrap: nowrap;
     gap: 32px;
     padding: 0px 16px;
@@ -91,6 +95,6 @@
     align-items: center;
 }
 
-/*@media screen {
-    padding: 0px 16px;
+/*@media (min-width: 768px){
+    
 }*/
