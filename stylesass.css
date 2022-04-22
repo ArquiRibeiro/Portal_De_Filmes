@@ -1,0 +1,666 @@
+@charset "UTF-8";
+:root {
+  --black: #252525;
+  --ferrari_red: #ff2800;
+  /*Ferrari Red HEX*/
+  --p_color:#303030;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  scroll-behavior: smooth;
+}
+
+body {
+  padding-top: 60px;
+  background-color: lightgray;
+}
+
+h3 {
+  margin: 0px;
+}
+
+p {
+  color: var(--p_color);
+  text-align: justify;
+  max-width: 60ch;
+}
+
+.mobile {
+  display: none;
+}
+
+.flexStart {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flexColumnStart {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.flexColumnCenter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.flexSpaceBetween {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.hide, .mySlides {
+  display: none;
+}
+
+.navFix {
+  position: absolute;
+  top: 0px;
+  transform: translateY(-60px);
+}
+
+/*HEADER*/
+#header {
+  width: 100%;
+  height: 60px;
+  position: fixed;
+  top: 0px;
+  background-color: var(--ferrari_red);
+  background-image: url("assets/embossed-diamond.png");
+  background-size: 25%;
+  z-index: 100;
+}
+#header .overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(to right, transparent, whitesmoke, whitesmoke);
+  z-index: 1;
+}
+#header > * {
+  z-index: 2;
+}
+#header a {
+  color: var(--black);
+  font-weight: bold;
+  text-decoration: none;
+  padding: 8px;
+  text-transform: uppercase;
+  transition: 200ms;
+}
+#header a:hover {
+  background-color: var(--ferrari_red);
+}
+#header .desktop {
+  width: 100%;
+  padding: 8px 32px;
+  display: flex;
+  align-items: center;
+}
+#header .desktop .logo {
+  width: 40px;
+  height: 40px;
+  background-color: whitesmoke;
+  border: 1px solid var(--black);
+  border-radius: 50%;
+}
+#header .desktop nav {
+  gap: 50px;
+}
+#header .desktop nav div {
+  gap: 20px;
+}
+#header .desktop nav input {
+  width: 100%;
+  min-width: 50px;
+  border: 0px;
+  border-radius: 5px;
+  padding: 8px 4px;
+}
+#header .mobile .logo {
+  width: 40px;
+  height: 40px;
+  background-color: whitesmoke;
+  border: 1px solid var(--black);
+  border-radius: 50%;
+}
+#header .mobile .sideBarOpener {
+  height: 60px;
+  background-color: whitesmoke;
+  vertical-align: middle;
+}
+
+/*DESTAQUES*/
+#destaques {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+  padding: 16px 24px;
+  overflow: hidden;
+  /*EVITA EXPANDIR A PÁGINA COM A ANIMAÇÃO RIGHT*/
+}
+#destaques > h2 {
+  grid-column: 1/-1;
+  text-align: center;
+}
+#destaques .cardFilme {
+  grid-column: 1/-1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  padding: 0px 16px;
+  margin-bottom: 32px;
+}
+#destaques .cardFilme iframe {
+  grid-column: 1/2;
+  width: 100%;
+  height: 360px;
+  border: 4px solid gray;
+}
+#destaques .cardFilme .texto {
+  grid-column: 2/3;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
+  height: 360px;
+  gap: 16px;
+}
+#destaques .cardFilme .texto .tituloFilme, #destaques .cardFilme .texto .sinopse, #destaques .cardFilme .texto .avaliacao, #destaques .cardFilme .texto .elenco {
+  grid-column: 1/-1;
+}
+#destaques .cardFilme .texto .sinopse {
+  max-width: 100%;
+  height: 125px;
+  overflow: auto;
+}
+#destaques .cardFilme .texto .cardFilme .texto .avaliacao {
+  gap: 5px;
+}
+#destaques .cardFilme .texto .info {
+  grid-column: auto;
+  align-self: flex-start;
+}
+#destaques .cardFilme .texto .info .w3-button {
+  padding-top: 0px;
+}
+#destaques .cardFilme .texto .info .w3-dropdown-content {
+  padding: 8px;
+}
+#destaques .slideButtons {
+  grid-column: 1/-1;
+  justify-self: center;
+}
+#destaques .slideButtons span {
+  background-color: whitesmoke;
+  width: 20px;
+  height: 20px;
+}
+#destaques .slideButtons span:hover {
+  background-color: black;
+  cursor: pointer;
+}
+#destaques .slideButtons .selectedDot {
+  background-color: var(--ferrari_red);
+}
+
+/*PODIO*/
+#podio {
+  position: relative;
+  background-image: url("assets/dark-triangles.png");
+  background-size: 20%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, auto);
+  justify-items: center;
+  align-items: end;
+  padding-bottom: 32px;
+}
+#podio h2 {
+  color: whitesmoke;
+  grid-column: 1/-1;
+  grid-row: 1;
+  text-align: center;
+}
+#podio .card2, #podio .card1, #podio .card3 {
+  width: 200px;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: repeat(2, auto);
+}
+#podio .card2 img, #podio .card1 img, #podio .card3 img {
+  width: 100%;
+  grid-column: 1;
+  margin-bottom: 10px;
+}
+#podio .card2 .podium {
+  width: 100%;
+  height: 100px;
+  grid-column: 1;
+  background-image: linear-gradient(to bottom right, silver, #f2f2f2);
+}
+#podio .card1 .podium {
+  width: 100%;
+  height: 150px;
+  grid-column: 1;
+  background-image: linear-gradient(to bottom right, gold, #fde86d);
+}
+#podio .card3 .podium {
+  width: 100%;
+  height: 50px;
+  grid-column: 1;
+  background-image: linear-gradient(to bottom right, brown, #ce4f4f);
+}
+
+/*CATALOGO*/
+#catalogo {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: auto;
+  padding: 16px 64px;
+  grid-gap: 40px;
+}
+#catalogo h2 {
+  margin: 0px;
+  grid-column: 1/-1;
+  text-align: left;
+}
+#catalogo .searchBar {
+  grid-column: 1/3;
+}
+#catalogo .dropDown {
+  width: 100%;
+  padding: 8px 15px;
+  align-self: end;
+  grid-column: -2;
+  background-color: #252525;
+}
+#catalogo .dropDown > button {
+  width: 100%;
+  text-align: center;
+  color: whitesmoke;
+  font-size: 10px;
+  background-color: transparent;
+  white-space: normal;
+  text-align: center;
+  padding: 0px;
+}
+#catalogo .dropDown .w3-dropdown-content {
+  color: #252525;
+}
+#catalogo #empty {
+  grid-column: 1/-1;
+  font-size: 32px;
+}
+#catalogo img {
+  width: 100%;
+  height: 100%;
+  max-height: 300px;
+  grid-column: auto;
+  grid-row: auto;
+  box-shadow: 4px 4px 4px gray;
+  filter: saturate(25%);
+  transition: 300ms;
+}
+#catalogo img:hover {
+  box-shadow: 16px 16px 8px gray;
+  transform: scale(120%);
+  filter: saturate(120%);
+}
+
+/*COMENTÁRIOS*/
+#comentarios {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  padding: 0px 64px;
+  margin-bottom: 40px;
+}
+#comentarios h2 {
+  text-align: left;
+}
+#comentarios > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+#comentarios > div .card {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 5px;
+}
+#comentarios > div .card .icone {
+  flex-shrink: 0;
+  width: 45px;
+}
+#comentarios > div .card .texto {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 30ch;
+}
+#comentarios > div .card .texto h4 {
+  margin: 0px;
+}
+
+#carroSemana {
+  position: relative;
+  display: flex;
+  max-height: 500px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  overflow: hidden;
+  gap: 16px;
+  padding: 32px 0px;
+}
+#carroSemana .texto {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 15px;
+  padding: 16px 64px;
+  overflow: auto;
+}
+#carroSemana .texto h2 {
+  margin: 0px;
+}
+#carroSemana .texto h3 {
+  margin: 0px;
+  margin-bottom: 30px;
+}
+#carroSemana img {
+  width: 100%;
+  position: absolute;
+  z-index: -2;
+  transform: scaleX(-1);
+}
+#carroSemana .overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+  background-image: linear-gradient(to right, white, transparent);
+}
+
+/*BLOG*/
+#blog {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, auto);
+  padding: 16px 64px;
+  grid-gap: 32px;
+}
+#blog .articles {
+  grid-column: 1/-2;
+  grid-row: 1/-1;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, max-content);
+  grid-gap: 20px;
+}
+#blog .articles .card {
+  grid-column: 1;
+  grid-row: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, auto);
+  gap: 16px;
+  justify-items: start;
+  cursor: pointer;
+}
+#blog .articles .card p, #blog .articles .card span {
+  font-size: 14px;
+}
+#blog .articles .card img {
+  width: 100%;
+  grid-column: 1;
+  grid-row: 1/-1;
+  align-self: center;
+}
+#blog .articles .card .articleTitle {
+  grid-column: 2/-1;
+  grid-row: auto;
+  margin: 0px;
+}
+#blog .articles .card .articleText {
+  max-width: 40ch;
+  grid-column: 2/-1;
+  grid-row: auto;
+}
+#blog .articles .card .badge {
+  background-color: darkgray;
+  border-radius: 100px;
+  padding: 2px 8px;
+  grid-column: auto;
+  grid-row: auto;
+}
+#blog .sobre {
+  grid-column: -2;
+  grid-row: 1;
+}
+#blog .editorial {
+  grid-column: -2;
+  grid-row: 2;
+  display: grid;
+  grid-template-columns: repeat(3, max-content);
+}
+#blog .editorial h2, #blog .editorial h3, #blog .editorial span {
+  grid-column: 1/-1;
+}
+#blog .editorial .icon {
+  width: 30px;
+}
+
+/*BLOG*/
+#footer {
+  position: relative;
+  width: 100%;
+  background-color: var(--ferrari_red);
+  background-image: url("assets/embossed-diamond.png");
+  background-size: 25%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  padding: 16px;
+  gap: 20px;
+}
+#footer .overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(to right, whitesmoke, whitesmoke, transparent);
+  z-index: -1;
+}
+#footer .icone {
+  width: 40px;
+}
+
+/*MEDIA QUERIES*/
+@media (max-width: 992px) {
+  #header .desktop .flexCenter {
+    gap: 0px;
+  }
+
+  #destaques .info {
+    grid-column: 1/-1;
+  }
+}
+@media (max-width: 768px) {
+  .desktop {
+    display: none !important;
+  }
+
+  .mobile {
+    display: block !important;
+  }
+
+  #header {
+    justify-content: flex-start;
+  }
+
+  #destaques .cardFilme {
+    grid-template-columns: 1fr;
+  }
+  #destaques .cardFilme iframe {
+    height: 260px;
+    grid-column: 1/-1;
+  }
+  #destaques .cardFilme .texto {
+    grid-column: 1/-1;
+  }
+  #destaques .cardFilme .texto .info {
+    grid-column: 1/-1;
+  }
+
+  #podio {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(4, auto);
+    justify-items: center;
+  }
+  #podio .card1 {
+    width: 200px;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: 1fr;
+    gap: 30px;
+    grid-row: 2;
+    justify-self: start;
+    align-items: center;
+  }
+  #podio .card2 {
+    width: 200px;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: 1fr;
+    gap: 30px;
+    grid-row: 3;
+    justify-self: center;
+    align-items: center;
+  }
+  #podio .card3 {
+    width: 200px;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: 1fr;
+    gap: 30px;
+    grid-row: 4;
+    justify-self: end;
+    align-items: center;
+  }
+  #podio .card1 img, #podio .card2 img, #podio .card3 img {
+    margin: 0px;
+    grid-column: 1;
+  }
+  #podio .card1 .podium, #podio .card2 .podium, #podio .card3 .podium {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    grid-column: 2;
+  }
+
+  #catalogo {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  #comentarios div {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  #comentarios div .card {
+    flex-direction: column;
+  }
+  #comentarios div .card .texto {
+    max-width: 60ch;
+  }
+
+  #carroSemana {
+    max-height: none;
+  }
+  #carroSemana .texto {
+    max-height: 300px;
+    padding: 0px 8px;
+  }
+
+  #blog {
+    grid-template-columns: 1fr;
+  }
+  #blog .articles, #blog .sobre, #blog .editorial {
+    grid-column: 1;
+    grid-row: auto;
+  }
+}
+@media (max-width: 576px) {
+  #destaques .cardFilme {
+    grid-template-columns: 1fr;
+  }
+  #destaques .cardFilme iframe, #destaques .cardFilme .texto {
+    grid-column: 1/-1;
+  }
+
+  #catalogo {
+    padding: 0px;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  #catalogo .searchBar {
+    grid-column: 1/-1;
+  }
+  #catalogo .dropDown {
+    align-self: end;
+    grid-column: 3/5;
+  }
+  #catalogo img {
+    grid-column: span 2;
+    grid-row: auto;
+  }
+
+  #carroSemana {
+    max-height: none;
+  }
+  #carroSemana .texto {
+    max-height: none;
+    padding: 0px 8px;
+  }
+  #carroSemana img {
+    position: relative;
+  }
+  #carroSemana .overlay {
+    display: none;
+  }
+
+  #blog .articles .card {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  #blog .articles .card img, #blog .articles .card .articleText, #blog .articles .card .articleTitle {
+    grid-column: 1/-1;
+  }
+}
+
+/*# sourceMappingURL=stylesass.css.map */

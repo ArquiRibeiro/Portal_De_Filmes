@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "bootstrap-icons": "^1.8.1",
+    "sass": "^1.50.0"
+  },
+  "name": "leonardoribeiro_portaldefilmes",
+  "version": "1.0.0",
+  "main": "script.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArquiRibeiro/Portal_De_Filmes.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ArquiRibeiro/Portal_De_Filmes/issues"
+  },
+  "homepage": "https://github.com/ArquiRibeiro/Portal_De_Filmes#readme",
+  "description": ""
+}

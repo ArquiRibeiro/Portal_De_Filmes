@@ -5,62 +5,303 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portal_De_Filmes</title>
+    <link rel = icon href="node_modules/bootstrap-icons/icons/flag.svg">
 
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="w3.css">
+    <link rel="stylesheet" href="stylesass.css">
 </head>
 <body>
-    <header id="header">
-        <img class="logo" src="https://source.unsplash.com/random/40x40" alt="">
-        <nav>
-            <div class="container1">
-                <a href="#"></a>
-                <a href="#">Lançamentos</a>
-                <a href="#">Destaques</a>
-                <a href="#">Avaliações</a>
-                <a href="#">Blog</a>
+    <header id="header" class="flexCenter">
+        <div class="overlay"></div>
+        <div class="desktop flexSpaceBetween">
+            <!--<img class="logo" src="https://source.unsplash.com/random/40x40" alt="">-->
+            <img class="logo" src="node_modules/bootstrap-icons/icons/flag-fill.svg" alt="">
+            <nav class="flexCenter">
+                <div class="flexCenter">
+                    <a href="#destaquesFix">Destaques</a>
+                    <a href="#podioFix">Pódio</a>
+                    <a href="#catalogoFix">Catálogo</a>
+                    <a href="#comentariosFix">Comentários</a>
+                    <a href="#carroSemanaFix">Carro Da Semana</a>
+                    <a href="#blogFix">Blog</a>
+                </div>
+                <!--<input type="text" placeholder="Pesquisar Filme">-->
+            </nav>
+        </div>
+        <div class="mobile">            
+            <div class="w3-overlay" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
+            <button class="w3-button sideBarOpener" onclick="w3_open()">&#9776;</button>
+            <div class="w3-sidebar w3-bar-block" style="display:none;z-index:5" id="mySidebar">
+                <button class="w3-bar-item w3-button w3-xxlarge" onclick="w3_close()">Close &times;</button>
+                <a href="#destaquesFix" class="w3-bar-item w3-button">Destaques</a>
+                <a href="#podioFix" class="w3-bar-item w3-button">Pódio</a>
+                <a href="#catalogoFix" class="w3-bar-item w3-button">Catálogo</a>
+                <a href="#comentariosFix" class="w3-bar-item w3-button">Comentários</a>
+                <a href="#carroSemanaFix" class="w3-bar-item w3-button">Carro Da Semana</a>
+                <a href="#blogFix" class="w3-bar-item w3-button">Blog</a>
             </div>
-            <input type="text" placeholder="Pesquisar Filme">
-        </nav>
+            <img class="logo" src="node_modules/bootstrap-icons/icons/flag-fill.svg" alt="">
+        </div>
     </header>
 
     <section id="destaques">
-        <h2>Lançamentos</h2>
-        <div class="container1 mySlides">
+        <div id="destaquesFix" class="navFix"></div>
+        <h2>Destaques Do Cinema</h2>
+        <div class="cardFilme mySlides w3-animate-right">
             <iframe src="https://www.youtube.com/embed/csFnDoXQKvg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <div class="container2">
-                <h3>La Guerre des 24 Heures</h3>
-                <p class="sinopse"><span>Sinopse: </span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime nobis alias dolorum odio. Laudantium consequuntur aliquam illo! Similique quidem unde quo soluta iste quisquam eos velit, ipsam atque dolore! Illo recusandae ipsam quia ipsa iusto qui, aperiam corporis unde exercitationem neque itaque porro aspernatur quisquam quos, dicta eveniet numquam expedita.</p>
-                <div class="container3">
-                    <span>Diretor: </span>
-                    <span>Roteiro: </span>
-                    <span>Estreia: </span>
+            <div class="texto">
+                <h3 class="tituloFilme">La Guerre des 24 Heures</h3>
+                <p class="sinopse"><span>Sinopse: </span>A amarga rivalidade entre Henry Ford II com Enzo Ferrari na década de 1960 resultou num dos períodos mais estonteantes de corridas de carros desportivos na história do automobilismo. Agora esta história épica, que foi o grande o destaque no Le Mans, é recontada num emocionante novo documentário.</p>                
+                <div class="info">
+                    <span class="bold">Direção: </span>            
+                    <div class="w3-dropdown-hover">
+                        <button class="w3-button">+</button>
+                        <div class="w3-dropdown-content w3-border">
+                            <p>Nate Adams<br>Adam Carolla</p>
+                        </div>
+                    </div>
                 </div>
-                <p><span>Elenco: </span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Delectus, odit.</p>
-                <div class="container4">
-                    <span>Avaliação: </span>
+                <div class="info">
+                    <span class="bold">Roteiro: </span>            
+                    <div class="w3-dropdown-hover">
+                        <button class="w3-button">+</button>
+                        <div class="w3-dropdown-content w3-border">
+                            <p>Nate Adams<br>Adam Carolla</p>
+                        </div>
+                    </div>
+                </div>
+                <span class="info"><span class="bold">Estreia: </span>2016</span>
+                <span class="info"><span class="bold">Duração: </span>1 h 39 min</span>
+                <span class="elenco"><span>Elenco: </span>Mario Andretti, Bob Bondurante, Dan Gurney...</span>
+                <div class="avaliacao flexStart">
+                    <span>Avaliação:</span>
+                    <img src="node_modules/bootstrap-icons/icons/star-fill.svg" alt="">
+                    <img src="node_modules/bootstrap-icons/icons/star-fill.svg" alt="">
+                    <img src="node_modules/bootstrap-icons/icons/star-fill.svg" alt="">
+                    <img src="node_modules/bootstrap-icons/icons/star-fill.svg" alt="">
+                    <img src="node_modules/bootstrap-icons/icons/star-fill.svg" alt="">
+                </div>
+            </div>
+        </div>        
+        <div class="cardFilme mySlides w3-animate-right">
+            <iframe src="https://www.youtube.com/embed/zyYgDtY2AMY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="texto">
+                <h3 class="tituloFilme">La Guerre des 24 Heures</h3>
+                <p class="sinopse"><span>Sinopse: </span>Durante a década de 1960, a Ford resolve entrar no ramo das corridas automobilísticas de forma que a empresa ganhe o prestígio e o glamour da concorrente Ferrari, campeoníssima em várias corridas. Para tanto, contrata o ex-piloto Carroll Shelby (Matt Damon) para chefiar a empreitada. Por mais que tenha carta branca para montar sua equipe, incluindo o piloto e engenheiro Ken Miles (Christian Bale), Shelby enfrenta problemas com a diretoria da Ford, especialmente pela mentalidade mais voltada para os negócios e a imagem da empresa do que propriamente em relação ao aspecto esportivo.</p>
+                <div class="info">
+                    <span class="bold">Direção: </span>            
+                    <div class="w3-dropdown-hover">
+                        <button class="w3-button">+</button>
+                        <div class="w3-dropdown-content w3-border">
+                            <p>James Mangold</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="info">
+                    <span class="bold">Roteiro: </span>            
+                    <div class="w3-dropdown-hover">
+                        <button class="w3-button">+</button>
+                        <div class="w3-dropdown-content w3-border">
+                            <p>A.J Baime & Jez Butterworth</p>
+                        </div>
+                    </div>
+                </div>
+                <span class="info"><span class="bold">Estreia: </span>2019</span>
+                <span class="info"><span class="bold">Duração: </span>2 h 33 min</span>
+                <span class="elenco"><span>Elenco: </span>Matt Damon, Christian Bale, Caitriona Balfe...</span>
+                <div class="avaliacao flexStart">
+                    <span>Avaliação:</span>
+                    <img src="node_modules/bootstrap-icons/icons/star-fill.svg" alt="">
+                    <img src="node_modules/bootstrap-icons/icons/star-fill.svg" alt="">
+                    <img src="node_modules/bootstrap-icons/icons/star-fill.svg" alt="">
+                    <img src="node_modules/bootstrap-icons/icons/star-fill.svg" alt="">
+                    <img src="node_modules/bootstrap-icons/icons/star-half.svg" alt="">
+                </div>
+            </div>
+        </div>        
+        <div class="cardFilme mySlides w3-animate-right">            
+            <iframe src="https://www.youtube.com/embed/wtJPe1ksS6E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="texto">
+                <h3 class="tituloFilme">Formula 1: Drive To Survive</h3>
+                <p class="sinopse"><span>Sinopse: </span>Fórmula 1: Dirigir Para Viver (Fórmula 1: A Emoção de um Grande Prémio em PT) é uma Série de Documentários produzida em colaboração entre a Netflix e a Fórmula 1 para dar uma visão exclusiva dos bastidores do <a href="https://pt.wikipedia.org/wiki/Temporada_de_F%C3%B3rmula_1_de_2018">Campeonato Mundial de Fórmula 1 de 2018</a>. A  série de documentários tem 10 partes é a "primeira a realmente imergir o público dentro dos cockpits, o paddock e as vidas dos principais pilotos e chefes de equipe da Fórmula 1 ". A série abrange o Campeonato Mundial de Fórmula 1 de 2018 e tem "acesso incomparável e exclusivo aos pilotos mais rápidos do mundo, diretores de equipe e proprietários, bem como à própria equipe de gerenciamento da Fórmula 1 (Federação Internacional do Automóvel)</p>
+                <div class="info">
+                    <span class="bold">Direção:</span>            
+                    <div class="w3-dropdown-hover">
+                        <button class="w3-button">+</button>
+                        <div class="w3-dropdown-content w3-border">
+                            <p>Sophie Todd</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="info">
+                    <span class="bold">Roteiro: </span>            
+                    <div class="w3-dropdown-hover">
+                        <button class="w3-button">+</button>
+                        <div class="w3-dropdown-content w3-border">
+                            <p>Martin Webb,<br>Will Buxton,<br>Valtteri Bottas,<br>Alexander Albon,<br>Cyril Abiteboul,<br>Onur Han Besen,<br>Gizem Besen,<br>Nick Hardie,<br>James Routh,<br>Nonuk Walter,<br>Nick Hardie</p>
+                        </div>
+                    </div>
+                </div>
+                <span class="info"><span class="bold">Estreia: </span>2019</span>
+                <span class="info"><span class="bold">Duração: </span>40 min (4 Temporadas)</span>
+                <span class="elenco"><span>Elenco: </span>Matt Damon, Christian Bale, Caitriona Balfe...</span>
+                <div class="avaliacao flexStart">
+                    <span>Avaliação:</span>
+                    <img src="node_modules/bootstrap-icons/icons/star-fill.svg" alt="">
+                    <img src="node_modules/bootstrap-icons/icons/star-fill.svg" alt="">
+                    <img src="node_modules/bootstrap-icons/icons/star-fill.svg" alt="">
+                    <img src="node_modules/bootstrap-icons/icons/star-half.svg" alt="">
+                    <img src="node_modules/bootstrap-icons/icons/star.svg" alt="">
                 </div>
             </div>
         </div>
-        <div class="container1 mySlides">
-            <iframe src="https://www.youtube.com/embed/csFnDoXQKvg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <div class="container2">
-                <h3>La Guerre des 24 Heures</h3>
-                <p class="sinopse"><span>Sinopse: </span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempora molestias nesciunt corrupti expedita hic labore?</p>
-                <div class="container3">
-                    <span>Diretor: </span>
-                    <span>Roteiro: </span>
-                    <span>Estreia: </span>
-                </div>
-                <p><span>Elenco: </span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Delectus, odit.</p>
-                <div class="container4">
-                    <span>Avaliação: </span>
-                </div>
-            </div>
+        <div class="slideButtons">
+            <span class="w3-badge demo w3-border" onclick="currentDiv(1)"></span>
+            <span class="w3-badge demo w3-border" onclick="currentDiv(2)"></span>
+            <span class="w3-badge demo w3-border" onclick="currentDiv(3)"></span>
         </div>
-        <!--<button class="w3-button w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
-        <button class="w3-button w3-display-right" onclick="plusDivs(+1)">&#10095;</button>-->
     </section>
+
+    <section id="podio">
+        <div id="podioFix" class="navFix"></div>
+        <h2>Podio Dos Favoritos</h2>
+        <div class="card2">
+            <img src="assets/InitialD.jpg" alt="Senna">
+            <div class="podium"></div>
+            <div class="medalha"></div>
+        </div>
+        <div class="card1">
+            <img src="assets/Guerra24.jpg" alt="Senna">
+            <div class="podium"></div>
+        </div>
+        <div class="card3">
+            <img src="assets/MadMaxFuryRoad.jpg" alt="Senna">
+            <div class="podium"></div>
+        </div>
+    </section>
+    
+    <section id="catalogo">
+        <div id="catalogoFix" class="navFix"></div>
+        <h2>Catálogo</h2>
+        <input class="w3-input w3-border w3-padding searchBar" type="text" placeholder="Pesquisar catálogo (funcional)" id="catalogoSearch" onkeyup="sortTable()">
+        <div class="w3-dropdown-hover dropDown">
+            <button class="w3-button">Categorias (funcional)</button>
+            <div class="w3-dropdown-content w3-bar-block w3-border">
+                <button class="w3-bar-item w3-button" onclick="sortByCategory('')">TODOS</button>
+                <button class="w3-bar-item w3-button" onclick="sortByCategory('acao')">Ação</button>
+                <button class="w3-bar-item w3-button" onclick="sortByCategory('animacao')">Animação</button>
+                <button class="w3-bar-item w3-button" onclick="sortByCategory('documentario')">Documentario</button>
+            </div>
+        </div>
+        <p id="empty" class="hide">Nada Encontrado.</p>
+        <img id="Senna" class="documentario" src="assets/Senna.jpg" alt="Poster">
+        <img id="24 Hour War" class="documentario" src="assets/Guerra24.jpg" alt="Poster">
+        <img id="Ford vs Ferrari" class="documentario" src="assets/FordFerrari.jpg" alt="Poster">
+        <img id="Initial D" class="animacao" src="assets/InitialD.jpg" alt="Poster">
+        <img id="MF Ghost" class="animacao" src="assets/MFGhost.jpg" alt="Poster">
+        <img id="RedLine" class="animacao" src="assets/RedLine.jpg" alt="Poster">
+        <img id="Mad Max 1" class="acao" src="assets/MadMax.jpg" alt="Poster">
+        <img id="Mad Max 2" class="acao" src="assets/MadMax2.jpg" alt="Poster">
+        <img id="Mad Max Fury Road" class="acao" src="assets/MadMaxFuryRoad.jpg" alt="Poster">
+        <img id="Need For Speed" class="acao" src="assets/NeedForSpeed.jpg" alt="Poster">
+        <img id="Fast And Furious" class="acao" src="assets/FastAndFurious.jpg" alt="Poster">
+        <img id="Fast And Furious Tokyo Drift" class="acao" src="assets/FastAndFuriousTokyoDrift.jpg" alt="Poster">
+        <img id="Fangio" class="documentario" src="assets/Fangio.jpg" alt="Poster">
+        <img id="The Gymkhana Files" class="documentario" src="assets/TheGymkhanaFiles.jpg" alt="Poster">
+        <img id="Cars" class="animacao" src="assets/Cars.jpeg" alt="Poster">
+    </section>
+
+    <section id="comentarios">
+        <div id="comentariosFix" class="navFix"></div>
+        <h2>Comentários Da Semana</h2>
+        <div>
+            <div class="card">
+                <img class="icone" src="./assets/person.svg" alt="Icone">
+                <div class="texto">
+                    <h3 class="texto">Relâmpago_Marquinhos</h3>
+                    <h4 class="texto">The Batman</h4>
+                    <p class="texto">O novo filme do Batman definitivamente deveria estar aqui só por conta do novo carro. Simplesmente animal!!</p>
+                </div>
+            </div>
+            <div class="card">
+                <img class="icone" src="./assets/person.svg" alt="Icone">
+                <div class="texto">
+                    <h3 class="texto">Panda86</h3>
+                    <h4 class="texto">Initial D</h4>
+                    <p class="texto">Não tenho muita confiança no MF Ghost. Me pareceu muito fraco quando comparado com Initial D clássico. Ainda assim, como fã de longa data, vou assistir.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img class="icone" src="./assets/person.svg" alt="Icone">
+                <div class="texto">
+                    <h3 class="texto">Agente770</h3>
+                    <h4 class="texto">Mad Max: Estrada Da Fúria</h4>
+                    <p class="texto">Alguem consegue me dizer qual o carro do Max de...bom, Mad Max? O contexto apocalíptico fez o carro ficar tao customizado que não consegui identificar. Vlw.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="carroSemana">
+        <div id="carroSemanaFix" class="navFix"></div>
+        <div class="overlay"></div>
+        <img src="./assets/Acura.jpg" alt="Honda NSX">
+        <div class="texto">
+            <h2>Carro Da Semana: Honda NSX (1990)</h2>
+            <h3>O nosso "carro de Senna"</h3>
+            <p>O famoso Honda NSX possui diferentes nomes. Por exemplo, se for comprar uma dessas belezinhas numa concessionária dos EUA, vai ter que procurar pelo nome "Acura NSX", mas se for comprar no boca a boca, pode caçar a "Ferrari Japonesa". No Brasil, porém, o carro possui um nome um pouco mais interessante: "Carro de Senna".</p>
+            <p>Não precisa ser professor de história para adivinhar daonde vem esse nome. Aryton Senna foi um dos pouquíssimos brasileiros a pegar no volante do superesportivo da Honda. Junto ao piloto Japonês Satoro Nakajima, Senna fez um test-drive no carro na pista de Suzuka, onde aconselhou a equipe de produção a tornar o carro mais rígido.</p>
+        </div>        
+    </section>
+
+    <section id="blog">
+        <div id="blogFix" class="navFix"></div>
+        <div class="articles">
+            <h2>Blog</h2>
+            <div class="card">
+                <img src="assets/CarWashing.jpg" alt="Blog Image">
+                <h4 class="articleTitle">Degradação de Carros Escuros</h4>
+                <p class="articleText">Por que carros de pretos ou de cores escuras tendem a degradar mais rapidamente que carros de outras pinturas? Vamos descobrir!</p>
+                <span class="badge flexCenter">Ajuda</span>
+                <span class="badge flexCenter">Preto</span>
+            </div>
+            <div class="card">
+                <img src="assets/Fusca.jpg" alt="Blog Image">
+                <h4 class="articleTitle">Para Poucos</h4>
+                <p class="articleText">Confira os modelos mais cobiçados entre os colecionadores. Indo desde o clássico Fusca a carros com meras dezenas de unidades esplahadas pelo mundo</p>
+                <span class="badge flexCenter">Curiosidade</span>
+                <span class="badge flexCenter">Raros</span>                
+            </div>
+            <div class="card">
+                <img src="assets/FIPE.jpg" alt="Blog Image">
+                <h4 class="articleTitle">Tabela Fipe 2022</h4>
+                <p class="articleText">Finalmente chegou! Venha conferir quanto está valendo seu carro na garagem ou o carro que quer colocar nela.</p>
+                <span class="badge flexCenter">FIPE</span>
+                <span class="badge flexCenter">Economia</span>
+                <!--<span class="badge flexCenter">Preto</span>-->
+            </div>
+        </div>
+        <div class="sobre">
+            <h2>Sobre</h2>
+            <p class="texto">Este site foi criado para todos os amantes de corrida que desejam ter acesso rápido e fácil aos melhores filmes e documentários, abrangendo desde filmes de animações a documentários sérios sobre o mundo automobilístico. Não se esqueça de checar nossas redes sociais para participar de enquentes e concorrer a miniaturas colecionáveis, além de ter contato com outros amantes de motores</p>
+        </div>
+        <div class="editorial">
+            <h2>Editorial</h2>
+            <span>Redação: <span>Leonardo Ribeiro</span></span>
+            <span>Pesquisa: <span>Leonardo Ribeiro</span></span>
+            <span>Gerente Geral: <span>Leonardo Ribeiro</span></span>
+            <h3>Redes Sociais:</h3>
+            <a href="#"><img class="icon" src="node_modules/bootstrap-icons/icons/twitter.svg" alt="twitter"></a>
+            <a href="#"><img class="icon" src="node_modules/bootstrap-icons/icons/facebook.svg" alt="facebook"></a>
+            <a href="#"><img class="icon" src="node_modules/bootstrap-icons/icons/instagram.svg" alt="facebook"></a>
+        </div>
+    </section>
+
+    <footer id="footer">
+        <p>Copyright 2022 - Disciplina De Desenvolvimento De Interfaces Web - <span>ICEI PUC Minas</span></p>
+        <a href="https://github.com/ArquiRibeiro"><img class="icone" src="./node_modules/bootstrap-icons/icons/github.svg" alt="GitHub"></a>
+        <div class="overlay"></div>
+    </footer>
 
     <script src="script.js"></script>
 </body>

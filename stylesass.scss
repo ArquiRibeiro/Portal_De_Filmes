@@ -1,0 +1,760 @@
+:root {
+	--black: #252525;
+	--ferrari_red: #ff2800; /*Ferrari Red HEX*/
+	--p_color:#303030;
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0px;
+	padding: 0px;
+	scroll-behavior: smooth;
+}
+
+body {
+	padding-top: 60px;
+	background-color: lightgray;
+}
+
+h3 {
+	margin: 0px;
+}
+
+p {
+	color: var(--p_color);
+	text-align: justify;
+	max-width: 60ch;
+}
+
+.mobile {
+	display: none;
+}
+
+.flexStart {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.flexCenter {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.flexColumnStart {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+}
+
+.flexColumnCenter {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.flexSpaceBetween {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.hide, .mySlides {
+	display: none;
+}
+
+.navFix{
+	position: absolute;
+	top: 0px;
+	transform: translateY(-60px);
+}
+
+/*HEADER*/
+#header {
+	width: 100%;
+	height: 60px;
+	position: fixed;
+	top: 0px;
+	background-color: var(--ferrari_red);
+	background-image: url("assets/embossed-diamond.png");
+	background-size: 25%;
+	z-index: 100;
+
+	.overlay{
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-image: linear-gradient(to right, transparent, whitesmoke, whitesmoke);		
+		z-index: 1;
+	}
+
+	> *{
+		z-index: 2;
+	}
+
+	a{
+		color: var(--black);
+		font-weight: bold;
+		text-decoration: none;
+		padding: 8px;
+		text-transform: uppercase;
+		transition: 200ms;
+	}
+
+	a:hover{
+		background-color: var(--ferrari_red);
+	}
+	
+	.desktop {
+		width: 100%;
+		padding: 8px 32px;
+		display: flex;
+		align-items: center;
+		
+		.logo {
+			width: 40px;
+			height: 40px;
+			background-color: whitesmoke;
+			border: 1px solid var(--black);
+			border-radius: 50%;
+		}
+		
+		nav {
+			gap: 50px;
+			
+			div {
+				gap: 20px;
+			}
+			
+			input {
+				width: 100%;
+				min-width: 50px;
+				border: 0px;
+				border-radius: 5px;
+				padding: 8px 4px;
+			}
+		}
+	}
+
+	.mobile{
+		.logo {
+			width: 40px;
+			height: 40px;
+			background-color: whitesmoke;
+			border: 1px solid var(--black);
+			border-radius: 50%;
+		}
+	}
+	
+	.mobile .sideBarOpener {
+		height: 60px;
+		background-color: whitesmoke;
+		vertical-align: middle;
+	}
+}
+/*DESTAQUES*/
+#destaques {
+	position: relative;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: auto;
+	padding: 16px 24px;
+	overflow: hidden; /*EVITA EXPANDIR A PÁGINA COM A ANIMAÇÃO RIGHT*/
+	
+	> h2 {
+		grid-column: 1 / -1;
+		text-align: center;
+	}
+	
+	.cardFilme {
+		grid-column: 1 / -1;
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 32px;
+		padding: 0px 16px;
+		margin-bottom: 32px;
+		
+		iframe {
+			grid-column: 1 / 2;
+			width: 100%;
+			height: 360px;
+			border: 4px solid gray;
+		}
+		
+		.texto {
+			grid-column: 2 / 3;
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			grid-template-rows: auto;
+			height: 360px;
+			gap: 16px;			
+
+			.tituloFilme, .sinopse, .avaliacao, .elenco {
+				grid-column: 1 / -1;				
+			}
+
+			.sinopse{
+				max-width: 100%;
+				height: 125px;
+				overflow: auto;
+			}
+			
+			.cardFilme .texto .avaliacao {
+				gap: 5px;
+			}
+
+			.info{
+				grid-column: auto;
+				align-self: flex-start;
+
+				.w3-button{
+					padding-top: 0px;
+				}
+
+				.w3-dropdown-content{
+					padding: 8px;					
+				}
+			}
+		}
+	}
+	
+	
+	.slideButtons {
+		grid-column: 1 / -1;
+		justify-self: center;
+		
+		span {
+			background-color: whitesmoke;
+			width: 20px;
+			height: 20px;
+			
+			&:hover {
+				background-color: black;
+				cursor: pointer;
+			}
+		}
+
+		.selectedDot {
+			background-color: var(--ferrari_red);
+		}
+	}
+}
+
+/*PODIO*/
+#podio {
+	position: relative;
+	background-image: url("assets/dark-triangles.png");
+	background-size: 20%;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(2, auto);
+	justify-items: center;
+	align-items: end;
+	padding-bottom: 32px;
+	
+	h2 {
+		color: whitesmoke;
+		grid-column: 1 / -1;
+		grid-row: 1;
+		text-align: center;
+	}
+	
+	.card2, .card1, .card3 {
+		width: 200px;
+		display: grid;
+		grid-template-columns: auto;
+		grid-template-rows: repeat(2, auto);
+	}
+	
+	.card2 img, .card1 img, .card3 img {
+		width: 100%;
+		grid-column: 1;
+		margin-bottom: 10px;
+	}
+	
+	.card2 .podium {
+		width: 100%;
+		height: 100px;
+		grid-column: 1;
+		background-image: linear-gradient(to bottom right, silver, rgb(242, 242, 242));
+	}
+	
+	.card1 .podium {
+		width: 100%;
+		height: 150px;
+		grid-column: 1;
+		background-image: linear-gradient(to bottom right, gold, rgb(253, 232, 109));
+	}
+	
+	.card3 .podium {
+		width: 100%;
+		height: 50px;
+		grid-column: 1;
+		background-image: linear-gradient(to bottom right, brown, rgb(206, 79, 79));
+	}
+}
+
+/*CATALOGO*/
+#catalogo {
+	position: relative;
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	grid-template-rows: auto;
+	padding: 16px 64px;
+	grid-gap: 40px;
+	
+	h2 {
+		margin: 0px;
+		grid-column: 1 / -1;
+		text-align: left;
+	}
+
+	.searchBar{
+		grid-column: 1 / 3;
+	}
+
+	.dropDown {
+		width: 100%;
+		padding: 8px 15px;
+		align-self: end;
+		grid-column: -2;
+		background-color: #252525;
+
+		> button{
+			width: 100%;
+			text-align: center;
+			color: whitesmoke;
+			font-size: 10px;
+			background-color: transparent;
+			white-space: normal;
+			text-align: center;
+			padding: 0px;
+		}
+
+		.w3-dropdown-content{
+			color: #252525;
+		}
+	}
+
+	#empty{
+		grid-column: 1/-1;
+		font-size: 32px;
+	}
+	
+	img {
+		width: 100%;
+		height: 100%;
+		max-height: 300px;
+		grid-column: auto;
+		grid-row: auto;
+		box-shadow: 4px 4px 4px gray;
+		filter: saturate(25%);
+		transition: 300ms;
+		
+		&:hover {
+			box-shadow: 16px 16px 8px gray;
+			transform: scale(120%);
+			filter: saturate(120%);
+		}
+	}
+}
+
+/*COMENTÁRIOS*/
+#comentarios{
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: stretch;
+	padding: 0px 64px;
+	margin-bottom: 40px;
+
+	h2{
+		text-align: left;
+	}
+
+	> div{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 15px;
+
+		.card{
+			display: flex;
+			justify-content: center;
+			align-items: flex-start;
+			gap: 5px;
+
+			.icone{
+				flex-shrink: 0;
+				width: 45px;
+			}
+
+			.texto{
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: flex-start;
+				max-width: 30ch;
+
+				h4{
+					margin: 0px;
+				}
+			}
+		}
+	}
+}
+
+#carroSemana{
+	position: relative;
+	display: flex;
+	max-height: 500px;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	position: relative;
+	overflow: hidden;
+	gap: 16px;
+	padding: 32px 0px;
+
+	.texto{		
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: flex-start;
+		gap: 15px;		
+		padding: 16px 64px;
+		overflow: auto;
+
+		h2{
+			margin: 0px;
+		}
+
+		h3{
+			margin: 0px;
+			margin-bottom: 30px;
+		}
+	}
+
+	img{
+		width: 100%;
+		position: absolute;
+		z-index: -2;
+		transform: scaleX(-1);
+	}
+
+	.overlay{
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		z-index: -1;
+		background-image: linear-gradient(to right, white, transparent);
+	}
+}
+
+/*BLOG*/
+#blog {
+	position: relative;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(2, auto);
+	padding: 16px 64px;
+	grid-gap: 32px;
+
+	.articles{
+		grid-column: 1 / -2;
+		grid-row: 1 / -1;
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: repeat(2, max-content);
+		grid-gap: 20px;
+
+		.card{
+			grid-column: 1;
+			grid-row: auto;
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			grid-template-rows: repeat(3, auto);
+			gap: 16px;
+			justify-items: start;
+			cursor: pointer;
+
+			p, span{
+				font-size: 14px;
+			}
+
+			img{
+				width: 100%;				
+				grid-column: 1;	
+				grid-row: 1 / -1;
+				align-self: center;
+			}
+
+			.articleTitle{
+				grid-column: 2 / -1;
+				grid-row: auto;
+				margin: 0px;
+			}
+			
+			.articleText{
+				max-width: 40ch;
+				grid-column: 2 / -1;
+				grid-row: auto;
+			}
+
+			.badge{
+				background-color: darkgray;
+				border-radius: 100px;
+				padding: 2px 8px;
+				grid-column: auto;
+				grid-row: auto;
+			}
+		}		
+	}
+
+	.sobre{
+		grid-column: -2;
+		grid-row: 1;
+	}
+
+	.editorial{
+		grid-column: -2;
+		grid-row: 2;
+		display: grid;
+		grid-template-columns: repeat(3, max-content);
+		
+
+		h2,h3,span{
+			grid-column: 1 / -1;
+		}
+
+
+
+		.icon{
+			width: 30px;
+		}
+	}
+}
+
+/*BLOG*/
+#footer{
+	position: relative;
+	width: 100%;
+	background-color: var(--ferrari_red);
+	background-image: url("assets/embossed-diamond.png");
+	background-size: 25%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;		
+	z-index: 100;
+	padding: 16px;
+	gap: 20px;
+
+	.overlay{
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-image: linear-gradient(to right, whitesmoke, whitesmoke, transparent);		
+		z-index: -1;
+	}
+
+	.icone{
+		width: 40px;
+	}
+}
+
+/*MEDIA QUERIES*/
+@media (max-width: 992px) {
+	#header{
+		.desktop{
+			.flexCenter{
+				gap: 0px;
+			}
+		}
+	}
+
+	#destaques .info {
+		grid-column: 1 / -1;
+	}
+}
+
+@media (max-width: 768px) {
+	.desktop {
+		display: none !important;
+	}
+	
+	.mobile {
+		display: block !important;
+	}
+	
+	#header {
+		justify-content: flex-start;
+	}
+	
+	#destaques{
+		.cardFilme {
+			grid-template-columns: 1fr;
+
+			iframe{
+				height: 260px;
+				grid-column: 1 / -1;
+			}
+			
+			.texto {
+				grid-column: 1 / -1;
+	
+				.info{
+					grid-column: 1 / -1;
+				}
+			}
+		}				
+	}
+	
+	#podio {
+		grid-template-columns: repeat(1, 1fr);
+		grid-template-rows: repeat(4, auto);
+		justify-items: center;
+		
+		.card1 {
+			width: 200px;
+			grid-template-columns: repeat(2, auto);
+			grid-template-rows: 1fr;
+			gap: 30px;
+			grid-row: 2;
+			justify-self: start;
+			align-items: center;
+		}
+		
+		.card2 {
+			width: 200px;
+			grid-template-columns: repeat(2, auto);
+			grid-template-rows: 1fr;
+			gap: 30px;
+			grid-row: 3;
+			justify-self: center;
+			align-items: center;
+		}
+		
+		.card3 {
+			width: 200px;
+			grid-template-columns: repeat(2, auto);
+			grid-template-rows: 1fr;
+			gap: 30px;
+			grid-row: 4;
+			justify-self: end;
+			align-items: center;
+		}
+		
+		.card1 img, .card2 img, .card3 img {
+			margin: 0px;
+			grid-column: 1;
+		}
+		
+		.card1 .podium, .card2 .podium, .card3 .podium {
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+			grid-column: 2;
+		}
+	}
+	
+	#catalogo {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	#comentarios{
+		div{
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			.card{
+				flex-direction: column;
+
+				.texto{
+					max-width: 60ch;
+				}
+			}
+		}
+	}
+
+	#carroSemana{
+		max-height: none;
+		.texto{
+			max-height: 300px;
+			padding: 0px 8px;
+		}
+	}
+
+	#blog{
+		grid-template-columns: 1fr;
+
+		.articles, .sobre, .editorial{
+			grid-column: 1;
+			grid-row: auto;
+		}
+	}
+}
+
+@media (max-width: 576px) {
+	#destaques .cardFilme {
+		grid-template-columns: 1fr;
+		
+		iframe, .texto {
+			grid-column: 1 / -1;
+		}
+	}
+
+	#catalogo {
+		padding: 0px;
+		grid-template-columns: repeat(4, 1fr);
+
+		.searchBar{
+			grid-column: 1 / -1;
+		}
+
+		.dropDown{
+			align-self: end;
+			grid-column: 3 / 5;
+		}
+
+		img{
+			grid-column: span 2;
+			grid-row: auto;
+		}
+	}
+	
+	#carroSemana{
+		max-height: none;
+		.texto{
+			max-height: none;
+			padding: 0px 8px;
+		}
+
+		img{
+			position: relative;
+		}
+
+		.overlay{
+			display: none;
+		}
+	}
+
+	#blog{
+		.articles{
+			.card{
+				grid-template-columns: repeat(2, 1fr);
+
+				img, .articleText, .articleTitle{
+					grid-column: 1/ -1;
+				}				
+			}
+		}
+	}
+}
