@@ -314,6 +314,7 @@ p {
 }
 #catalogo img {
   width: 100%;
+  max-width: 200px;
   height: 100%;
   max-height: 300px;
   grid-column: auto;
